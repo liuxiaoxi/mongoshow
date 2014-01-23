@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Full Layout - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/themes/gray/easyui.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/ztreecss/zTreeStyle/zTreeStyle.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/themes/icon.css">
+	   <style type="text/css">  
+        .test_box {  
+		
+          
+            margin-left: auto;   
+            margin-right: auto;   
+            padding: 3px;   
+            outline: 0;   
+          	background-color:#494C4E;
+          	color:#feeeed;
+            font-size: 16px;  
+          
+            word-wrap: break-word;  
+            overflow-x: hidden;  
+            overflow-y: auto;  
+        }  
+       </style>  
+	<script type="text/javascript" src="/javascripts/lib/jquery-1.7.2.js"></script>
+	<script type="text/javascript" src="/javascripts/lib/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="/javascripts/lib/jquery.ztree.all-3.1.min.js"></script>
+	<script type="text/javascript" src="/javascripts/com/tabplane.js"></script>
+	<script >
+		
+		<!--
+		var setting = {
+			data: {
+				simpleData: {
+					enable: true
+				}
+			}
+		};
+
+		var zNodes =[
+			{ id:1, pId:0, name:"父节点1 - 展开", open:true},
+			{ id:11, pId:1, name:"父节点11 - 折叠"},
+			{ id:111, pId:11, name:"叶子节点111"},
+			{ id:112, pId:11, name:"叶子节点112"},
+			{ id:113, pId:11, name:"叶子节点113"},
+			{ id:114, pId:11, name:"叶子节点114"},
+			{ id:12, pId:1, name:"父节点12 - 折叠"},
+			{ id:121, pId:12, name:"叶子节点121"},
+			{ id:122, pId:12, name:"叶子节点122"},
+			{ id:123, pId:12, name:"叶子节点123"},
+			{ id:124, pId:12, name:"叶子节点124"},
+			{ id:13, pId:1, name:"父节点13 - 没有子节点", isParent:true},
+			{ id:2, pId:0, name:"父节点2 - 折叠"},
+			{ id:21, pId:2, name:"父节点21 - 展开", open:true},
+			{ id:211, pId:21, name:"叶子节点211"},
+			{ id:212, pId:21, name:"叶子节点212"},
+			{ id:213, pId:21, name:"叶子节点213"},
+			{ id:214, pId:21, name:"叶子节点214"},
+			{ id:22, pId:2, name:"父节点22 - 折叠"},
+			{ id:221, pId:22, name:"叶子节点221"},
+			{ id:222, pId:22, name:"叶子节点222"},
+			{ id:223, pId:22, name:"叶子节点223"},
+			{ id:224, pId:22, name:"叶子节点224"},
+			{ id:23, pId:2, name:"父节点23 - 折叠"},
+			{ id:231, pId:23, name:"叶子节点231"},
+			{ id:232, pId:23, name:"叶子节点232"},
+			{ id:233, pId:23, name:"叶子节点233"},
+			{ id:234, pId:23, name:"叶子节点234"},
+			{ id:3, pId:0, name:"父节点3 - 没有子节点", isParent:true}
+		];
+
+		$(document).ready(function(){
+			$.fn.zTree.init($("#treeDemo"), setting, zNodes);
+		});
+		//-->
+
+	</script>
+</head>
+<body class="easyui-layout">
+	
+
+	
+
+	<div region="north"  border="false" style="height:40px;">
+		<div style="padding:5px;border:1px solid #ddd">
+		    <a href="#" class="easyui-linkbutton" data-options="plain:true">Home</a>
+		    <a id="btn-edit" href="#" class="easyui-menubutton" data-options="menu:'#mm1',iconCls:'icon-edit'">Edit</a>
+		    <a href="#" class="easyui-menubutton" data-options="menu:'#mm2',iconCls:'icon-help'">Help</a>
+		    <a href="#" class="easyui-menubutton" data-options="menu:'#mm3'">About</a>
+		</div>
+		<div id="mm1" style="width:150px;">
+		    <div data-options="iconCls:'icon-undo'">Undo</div>
+		    <div data-options="iconCls:'icon-redo'">Redo</div>
+		    <div class="menu-sep"></div>
+		    <div>Cut</div>
+		    <div>Copy</div>
+		    <div>Paste</div>
+		    <div class="menu-sep"></div>
+		    <div>
+		        <span>Toolbar</span>
+		        <div style="width:150px;">
+		            <div>Address</div>
+		            <div>Link</div>
+		            <div>Navigation Toolbar</div>
+		            <div>Bookmark Toolbar</div>
+		            <div class="menu-sep"></div>
+		            <div>New Toolbar...</div>
+		        </div>
+		    </div>
+		    <div data-options="iconCls:'icon-remove'">Delete</div>
+		    <div>Select All</div>
+		</div>
+		<div id="mm2" style="width:100px;">
+		    <div>Help</div>
+		    <div>Update</div>
+		    <div>About</div>
+		</div>
+		<div id="mm3" class="menu-content" style="background:#f0f0f0;padding:10px;text-align:left">
+		    <img src="http://www.jeasyui.com/images/logo1.png" style="width:150px;height:50px">
+		    <p style="font-size:14px;color:#444;">Try jQuery EasyUI to build your modern, interactive, javascript applications.</p>
+		</div>
+	</div>
+	<div region="west" split="true" title="tree" style="width:250px;padding:10px;">
+		<ul id="treeDemo" class="ztree"></ul>
+	</div>
+	<!--<div region="east" split="true" title="East" style="width:100px;padding:10px;">east region</div>-->
+	<div region="south" split="true" border="false" style="height:20px;background:#A9FACD;">south region</div>
+	<div data-options="region:'center',title:'Center'">
+		<div class="easyui-layout" fit="true" >
+				
+			<div region="north" split="true" border="false" style="height:200px">
+				<div id="mongdbshow" class="easyui-tabs"   data-options="tools:'#tab-tools',fit:true,border:false,plain:true">
+					
+				</div>
+				<div id="tab-tools">
+					<a id="appendTabs" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-add'" ></a>
+					
+				</div>
+
+			</div>
+			<div region="center"  split="true" border="false">
+						
+			</div>
+
+		</div>	
+		
+	</div>
+
+</body>
+</html>
